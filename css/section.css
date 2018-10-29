@@ -1,0 +1,36 @@
+/* #5 external LAYOUT styles */
+
+/* #layout #splits in two columns*/
+
+/* #5 #channels area aligns left */
+#channels{
+    position:absolute;
+    left:0;
+}
+
+/* #5 #chat area aligns right */
+#chat{
+    position: absolute;
+    right:0;  
+}
+
+/* #5 defines moockus the talkative duck position within the #app-bar*/
+ #duck-container {
+position: relative;
+top:4px;
+left: 10px;
+}
+
+/* #5 specs according to material design on the #app-bar */
+.flex-items {
+    margin-left:10px; 
+}
+
+/* #5 #icons on #channels vertically centered and aligned right */
+.channel-meta{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position:relative;
+    bottom:150%;
+}

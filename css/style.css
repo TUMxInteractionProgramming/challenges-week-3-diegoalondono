@@ -22,16 +22,33 @@ button, strong {
     text-transform: uppercase;
 }
 
-
-
 /* APP BAR */
 
 /* #4 #sweat address both #app-bar s */
 h1 {
     background-color: #3F51B5;
     color: white;
+    font-size: 20px;
+    /* #5 gives the same height to both #app-bars */
+    height: 24px;
+     /* #5 #appbar specs styling */
+     padding: 16px 0px;
+    display:flex;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+
+
 }
 
+/* #channels area size is defined */
+#channels { 
+    width: 40%;
+
+/* #5 this is what makes the channels area fill the full screen height */
+    height: 100%;
+    background-color: lightgrey;
+}
 
 /* CHANNELS LIST */
 
@@ -41,6 +58,12 @@ ul {
     background-color: white;
     /* #3 #channels #bullets removed */
     list-style-type: none;
+
+/* #5 this is the solution for the #channel's list to scroll */ 
+position: relative;
+top: 0px;
+height: 80.5%;
+overflow: scroll;
 }
 
 li {
@@ -64,14 +87,45 @@ li img {
     vertical-align: middle;
 }
 
-/* TAB BAR */
+/* TAB BAR and CHAT BAR*/
 
 /* #4 #sweat #tab-bar */
-#tab-bar {
+#tab-bar, #chat-bar {
     /* #3 #tab-bar #container should be white */
     background-color: white;
     /* #3 #tab-bar #container has all buttons centered */
     text-align: center;
+    /* #5 #flexify #tab-bar */
+    display: flex;
+    justify-content: space-between;
+}
+
+/* #5 chat-bar initial styling*/
+#chat-bar{
+    display: block !important;
+    justify-content: initial !important;
+    text-align: initial !important;
+    height: 15%;
+}
+/* #5 styling the #chat bar's #emojis box*/
+#emojis{
+    background-color:white;
+   border: 1px solid black;
+   height: 200px;
+   width: 200px;
+   font-size: 28px;
+   position: absolute; 
+   bottom: 70px;
+   padding: 16px;
+   margin-top: 284px;
+   margin-left: 16px;
+    overflow: scroll;
+}
+
+/* #5 emoji button position */
+#emojis-button
+{  position: absolute;
+    bottom: 30px;
 }
 
 /* #4 add styles to #tab-bar #buttons */
@@ -100,7 +154,18 @@ li img {
 
 
 /* MESSAGES */
-/* #4 select #specific #messages by class and re-assign element styles according to their #hierarchy in a nested way */
+/* #4 select #specific #messages by class 
+and re-assign element styles according to their 
+#hierarchy in a nested way */
+
+#chat{
+    width: 60%;
+
+    /* #5 this is what makes the chat area fill the full screen height */
+    height: 100%;
+    background-color: lightgrey;
+}
+
 .message {
     /* #3 #chat #width*/
     width: 80%;
@@ -110,36 +175,51 @@ li img {
 
     /* #4 #message distance to next message container*/
     margin-bottom: 8px;
+
 }
 
 
 .message h3 {
     font-size: medium;
 }
-
+ 
 .message h3 em {
     font-size: larger;
     font-style: normal;
+    /* #5 set #display as inline-block to force width to affect surrounding elements*/
+    display: inline-block;
+    width: 32%;
+    
 }
 
 .message h3 a {
     /* #3 #chat #link color is primary text */
     color: black;
+
+    /* #5 set #display as inline-block to force width to affect surrounding elements*/
+    display: inline-block;
+    width: 40%;
 }
 
 .message p {
     background-color: white;
     padding: 16px;
+    /* #5 flexify interior of message for #4 buttons to align */
+    display:flex;
+    justify-content: space-between;
 }
 
 .message button {
     background-color: #CDDC39;
     color: black;
     text-transform: uppercase;
+    /* #5 position #button left and bottom 8 px */
+    position: absolute;
+    margin-left: 72%;
+    margin-top: 16px;
 }
 
 /* #4 left align own #messages using #margins */
 .message.own {
     margin-left: 17.5%;
 }
-
