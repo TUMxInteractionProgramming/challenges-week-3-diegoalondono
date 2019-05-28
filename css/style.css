@@ -33,7 +33,7 @@ h1 {
     height: 24px;
      /* #5 #appbar specs styling */
      padding: 16px 0px;
-    display:flex;
+    display: flex;
     align-items: center;
     flex-wrap: wrap;
     position: relative;
@@ -76,7 +76,7 @@ li {
     border-bottom: 1px solid #F5F5F5;
 }
 
-/* #4 active #channel is #highlighted */
+/* #4 and #6 active #channel is #highlighted */
 li.selected {
     color: #3F51B5;
     border-left: 4px solid #3F51B5;
@@ -109,23 +109,25 @@ li img {
 }
 /* #5 styling the #chat bar's #emojis box*/
 #emojis{
-    background-color:white;
+   display: none;
+   background-color:white;
    border: 1px solid black;
    height: 200px;
    width: 200px;
    font-size: 28px;
    position: absolute; 
-   bottom: 70px;
+   bottom: 90px;
+   left:10px;
    padding: 16px;
    margin-top: 284px;
    margin-left: 16px;
-    overflow: scroll;
+   overflow: scroll;
 }
 
 /* #5 emoji button position */
 #emojis-button
-{  position: absolute;
-    bottom: 30px;
+{  position: relative;
+   bottom: 0px;
 }
 
 /* #4 add styles to #tab-bar #buttons */
@@ -146,10 +148,10 @@ li img {
     margin: 0 auto 4px auto;
 }
 
-/* #4 the selected #tab-bar #button is #highlighted */
-#tab-bar button.selected {
+/* #4 and #6 the selected #tab-bar #button is #highlighted */
+#tab-bar .selected {
     color: #3F51B5;
-    border-bottom: 4px solid #3F51B5;
+    border-bottom: 5px solid #3F51B5;
 }
 
 

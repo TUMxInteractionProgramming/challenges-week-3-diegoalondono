@@ -10,8 +10,10 @@
     <!-- #4 #sweat out the styles by creating an #external css -->
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/section.css"/>
-
     
+    <!--#6 #javascript action embedding-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="js/script.js" type="text/javascript"></script>
 </head>
 <body>
 
@@ -25,7 +27,8 @@
 
     <!-- #3 #channels #list is much better, than headlines or paragraphs... -->
     <ul>
-        <li>#Yummy
+        <!-- #6 #switchchannel function makes #channel change on #app-bar and passes #argument to function-->
+        <li onclick="switchChannel('#Yummy','star-o')">#Yummy
             <!-- #3 #channels #favorite this is not starred -->
             <!-- #5 #chevron- right img-->
             <i class="channel-meta">
@@ -34,8 +37,9 @@
             </i>
         </li>
 
-        <!-- #4 #channel is #highlighted -->
-        <li class="selected">
+        <!-- #4 #channel is #highlighted-->
+        <!-- #6 #switchchannel function makes #channel change on #app-bar and passes #argument to function-->
+        <li class="selected" onclick="switchChannel('#SevenContinents', 'star')">
             #SevenContinents
             <!-- #3 #channels #favorite this is starred -->
             <!-- #5 #chevron- right img-->
@@ -47,7 +51,8 @@
         <li>#KillerApp
             <!-- #3 #channels #favorite this is not starred -->
             <!-- #5 #chevron- right img-->
-            <i class="channel-meta">
+            <!-- #6 #switchchannel function makes #channel change on #app-bar and passes #argument to function-->
+            <i class="channel-meta" onclick="switchChannel('#KillerApp', 'star-o')">
             <img src="http://ip.lfe.mw.tum.de/sections/star-o.png" alt="not starred">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Chevron_right_font_awesome.svg/512px-Chevron_right_font_awesome.svg.png" style="height: 20px;" alt="chevron-right-img">
             </i>
@@ -55,7 +60,8 @@
         <li>#FirstPersonOnMars
             <!-- #3 #channels #favorite this is starred -->
             <!-- #5 #chevron- right img-->
-            <i class="channel-meta">
+            <!-- #6 #switchchannel function makes #channel change on #app-bar and passes #argument to function-->
+            <i class="channel-meta" onclick="switchChannel('#FirstPersonOnMars', 'star')">
             <img src="http://ip.lfe.mw.tum.de/sections/star.png" alt="starred">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Chevron_right_font_awesome.svg/512px-Chevron_right_font_awesome.svg.png" style="height: 20px;" alt="chevron-right-img">
             </i>
@@ -63,7 +69,8 @@
         <li>#Octoberfest
             <!-- #3 #channels #favorite this is not starred -->
             <!-- #5 #chevron- right img-->
-            <i class="channel-meta">
+            <!-- #6 #switchchannel function makes #channel change on #app-bar and passes #argument to function-->
+            <i class="channel-meta" onclick="switchChannel('#Octoberfest', 'star-o')">
             <img src="http://ip.lfe.mw.tum.de/sections/star-o.png" alt="not starred">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Chevron_right_font_awesome.svg/512px-Chevron_right_font_awesome.svg.png" style="height: 20px;" alt="chevron-right-img">
             </i>
@@ -73,18 +80,21 @@
     <!-- #3 #tab-bar #container -->
     <!-- #4 #sweat #tab-bar -->
     <div id="tab-bar">
-        <!-- #4 #tab-bar selected channel should be #highlighted -->
-        <button class="selected">
+        <!-- #4 #tab-bar selected option should be #highlighted -->
+        <!--#6 User is able to switch through #tab-bar buttons and #highlight changes-->
+        <button id="NewTab" onclick="selectTab(NewTab)">
             <!-- #3 #tab-bar #images -->
             <img src="http://ip.lfe.mw.tum.de/sections/lightbulb-o.png" alt="Bulb">
             New
         </button>
-        <button>
+        <!--#6 User is able to switch through #tab-bar buttons and #highlight changes-->
+        <button id="TrendingTab" onclick="selectTab(TrendingTab)">
             <!-- #3 #tab-bar #images -->
             <img src="http://ip.lfe.mw.tum.de/sections/fire.png" alt="Hot">
             Trending
         </button>
-        <button>
+        <!--#6 User is able to switch through #tab-bar buttons and #highlight changes-->
+        <button class="selected" id="FavoritesTab" onclick="selectTab(FavoritesTab)">
             <!-- #3 #tab-bar #images -->
             <img src="http://ip.lfe.mw.tum.de/sections/star.png" alt="Star">
             Favorites
@@ -94,11 +104,13 @@
 
 <!-- #4 #one #page -->
 <div id="chat">
+<!--#APP-BAR-->    
     <h1>
-       #SevenContinents
-        <small class=flex-items>by
-            <strong class=flex-items>cheeses.yard.applies</strong>
-        </small>
+        <span id="chan-name">#SevenContinents</span>
+        <small class="channel-bar-items">by</small>
+        <a id="chan-location" href="https://map.what3words.com/cheeses.yard.applies"> cheeses.yard.applies </a>
+    <!--#6 turnStar #fucntion switches #app-bar star to filled-->    
+        <img src="http://ip.lfe.mw.tum.de/sections/star.png" id="app-star" onclick="turnStar()" alt="Star">
     </h1>
 
     <!-- #3 #chat #container -->
@@ -213,9 +225,10 @@
                     &#x1F922; &#x1F915; &#x1F913; &#x1F61F; 
                     &#x1F62F; &#x1F631; &#x1F621; &#x1F624; &#x1F608; 
                     &#x1F4A9; &#x1F47E; &#x1F49B; &#x1F499; &#x1F494; 
-              </div>
-            <button id="emojis-button">
-                <img src="http://ip.lfe.mw.tum.de/sections/smile-o.png" alt="emojis-button">
+            </div>
+            <!-- #6 the invoked function #toggleEmojis displays and hides the emoji box-->
+            <button id="emojis-button" onclick="toggleEmojis()">
+            <img src="http://ip.lfe.mw.tum.de/sections/smile-o.png" alt="emojis-button">
             </button>
       </div>  
     

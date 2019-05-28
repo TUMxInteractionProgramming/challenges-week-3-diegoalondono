@@ -15,17 +15,30 @@
 }
 
 /* #5 defines moockus the talkative duck position within the #app-bar*/
- #duck-container {
+#duck-container {
 position: relative;
-top:4px;
+bottom:5px;
 left: 10px;
 }
 
-/* #5 specs according to material design on the #app-bar */
-.flex-items {
+/* #5 specs for #app-bar according to material design on the #app-bar */
+.channel-bar-items{
     margin-left:10px; 
 }
-
+/* #6 selectors for #switching channel #script and #app-bar design*/
+#chan-name{
+    font-size: 20px;
+}
+#chan-location {
+    margin-left:10px; 
+    font-size:20px;
+    text-transform: uppercase;
+    color: inherit;
+}
+#app-star{
+    position: absolute;
+    right: 16px;
+}
 /* #5 #icons on #channels vertically centered and aligned right */
 .channel-meta{
     display: flex;
